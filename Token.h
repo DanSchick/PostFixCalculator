@@ -6,17 +6,24 @@
 #define HELLOWORLD_TOKEN_H
 
 
+#include <fstream>
+
 class Token {
 public:
-    /* Constructor for a token object */
+    /* Constructor for a token object with default stream of cin*/
     Token();
+
+    /*
+     * Constructor for a token that reads from a file
+     */
+    Token(std::ifstream *stream);
 
     char type; // this is the type of token. 'd' for double, 'c' for char
 
     /*
      * This will read the last token from cin
      */
-    int readToken();
+    int readToken(std::istream *stream);
 
     /*
      * This sets the double field to the given value.
@@ -38,6 +45,7 @@ public:
 private:
     char char_val = '|'; // holds a char value if the token is a symbol. defaults to | to check if there's a value
     double double_val = -1000 ; // holds a double value if the token is a number. defaults to -1000 to check if there's a value
+//    std::istream *stream;
 };
 
 

@@ -8,23 +8,28 @@
 
 using namespace std;
 
-Token::Token(void) {
+Token::Token() {
+    //this->readToken(&std::cin);
 }
 
-int Token::readToken(){
-    // we need to check if it's a number or symbl
+Token::Token(std::ifstream *newStream) {
+    //this->readToken(newStream);
+}
+
+int Token::readToken(istream *stream){
+    // we need to check if it's a number or symbol
     char x;
-    cin >> x; // read it into a char holder
+    *stream >> x; // read it into a char holder
     if(isdigit(x)){ // if it is a number, we put it back and read it as a double
-        cin.putback(x);
+        stream->putback(x);
         type = 'd';
-        cin >> double_val;
+        *stream >> double_val;
     } else { // else we put it back and read it as a char
         if(x == '='){
             return 1;
         }
-        cin.putback(x);
-        cin >> char_val;
+        stream->putback(x);
+        *stream >> char_val;
         type = 'c';
     }
     return 0;
@@ -38,7 +43,7 @@ char Token::getCharVal() {
     if(char_val != '|') {
         return char_val;
     } else {
-        throw "Error: accessing the wrong type";
+        cerr << "Error: accessing wrong type" << endl;
     }
 }
 
@@ -47,7 +52,6 @@ double Token::getDoubleVal() {
         return double_val;
     } else {
         cerr << "Error: accessing the wrong type" << endl;
-        throw "Error: accessing the wrong type";
     }
 }
 

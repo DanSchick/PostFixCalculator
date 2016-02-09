@@ -31,12 +31,10 @@ Tstack::Tstack(const Tstack &obj) {
 
 }
 Tstack::~Tstack() {
-    cout << "deleting" << endl;
-//    delete &storage;
-//    delete &bufferSize;
-//    delete &size;
-//    delete &top;
-    delete this;
+    delete storage;
+    delete &bufferSize;
+    delete &size;
+    delete &top;
 }
 void Tstack::clear() {
     top = -1;

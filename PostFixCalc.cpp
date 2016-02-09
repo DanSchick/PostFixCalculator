@@ -9,6 +9,13 @@
 using namespace std;
 
 PostFixCalc::PostFixCalc() {
+    stream = &std::cin;
+}
+
+
+PostFixCalc::PostFixCalc(ifstream *in) {
+    stream = in;
+
 }
 
 int PostFixCalc::turnOn() {
@@ -28,7 +35,7 @@ int PostFixCalc::turnOn() {
         Token token;
         // First thing we do is read the next token
         // if the token isn't an equals sign, it will return 0
-        if(token.readToken() == 0) {
+        if(token.readToken(stream) == 0) {
             newExpression = false; // after we read one token that's not equals, it's not a new expression
             if (token.type == 'd') {
                 // if the token is a double, we push it
@@ -68,7 +75,7 @@ int PostFixCalc::turnOn() {
 
             }
         } else{ // token.readToken() returned 1, meaning the token was an = AND there is no errors
-            if(tokenStack.getSize() != 0){
+            if(tokenStack.getSize() > 0){
                 // there is still tokens in the stack, meaning there were extra numbers
                 // example: '1 2 3 + ='
                 cerr << "ERROR: too many numbers in the expression" << endl;
@@ -84,7 +91,7 @@ int PostFixCalc::turnOn() {
             else if(newExpression){
                 // we need to exit because the user typed in our = sentinel
                 cout << "Exiting... " << endl;
-                exit(0); // do a full exit
+                return 0;
             } else {
                 // it's the end of an expression. Get the result and print it out
                 tokenResult = tokenStack.pop();

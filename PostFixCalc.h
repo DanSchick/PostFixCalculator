@@ -10,8 +10,22 @@
 
 class PostFixCalc {
 public:
+    /*
+     * Constructor for a post-fix calculator object with default stream of cin
+     */
     PostFixCalc();
+    /*
+     * Constructor with a file input stream
+     */
+    PostFixCalc(std::ifstream *in);
+    /*
+     * Method that runs the calculator. Handles everything.
+     */
     int turnOn();
+
+private:
+    std::istream *stream;
+
 
 };
 
