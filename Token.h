@@ -45,7 +45,6 @@ public:
 private:
     char char_val = '|'; // holds a char value if the token is a symbol. defaults to | to check if there's a value
     double double_val = -1000 ; // holds a double value if the token is a number. defaults to -1000 to check if there's a value
-//    std::istream *stream;
 };
 
 

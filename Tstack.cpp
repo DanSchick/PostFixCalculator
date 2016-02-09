@@ -27,9 +27,7 @@ Tstack::Tstack(int len) {
     this->bufferSize = len;
     this->size = len;
 }
-Tstack::Tstack(const Tstack &obj) {
 
-}
 Tstack::~Tstack() {
     delete storage;
     delete &bufferSize;
