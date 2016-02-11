@@ -3,7 +3,6 @@
 //
 
 #include <iostream>
-#include <stdlib.h>
 #include "PostFixCalc.h"
 
 using namespace std;

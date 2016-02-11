@@ -6,7 +6,7 @@
 #include "Token.h"
 
 using namespace std;
-int main(int argc, char** argv) {
+int main1(int argc, char** argv) {
     Token token;
     // read a token from cin
     token.readToken(&cin);

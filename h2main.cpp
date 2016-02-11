@@ -6,7 +6,7 @@
 #include "Tstack.h"
 
 using namespace std;
-int main(int argc, char** argv) {
+int main2(int argc, char** argv) {
     cout << "Enter 5 numbers to make this easier to show dynamic allocation: " << endl;
     Tstack stack = Tstack(5); // construct with specified length
     // now let's test that the stack will dynamically allocate

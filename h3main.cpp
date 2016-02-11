@@ -15,7 +15,6 @@ int main(int argc, char** argv) {
     PostFixCalc calc;
     calc.turnOn();
 
-
     // now we test using files
 
     // get the input file
@@ -27,7 +26,6 @@ int main(int argc, char** argv) {
 
 
     // now get the output and redirect cout and cerr to the outfile using freopen()
-    ofstream outfile;
     cout << "Enter the name of the outfile: " << endl;
     cin >> input;
     const char * c = input.c_str();
